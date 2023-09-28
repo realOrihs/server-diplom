@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "places",
+  "info": {
+    "singularName": "place",
+    "pluralName": "places",
+    "displayName": "Place",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "games": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::game.game",
+      "inversedBy": "places"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "stats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::stat.stat",
+      "mappedBy": "place"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "place"
+    },
+    "totalCountTransaction": {
+      "type": "biginteger"
+    },
+    "volume": {
+      "type": "biginteger"
+    },
+    "isPromoted": {
+      "type": "boolean"
+    },
+    "link": {
+      "type": "string"
+    },
+    "promo_code": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::promo-code.promo-code"
+    },
+    "img": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "places"
+    },
+    "amount_currencies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::amount-currency.amount-currency",
+      "mappedBy": "place"
+    }
+  }
+}
